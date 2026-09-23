@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projects — KillerWhale G&E</title>
+<meta name="description" content="Games, apps, and books from KillerWhale G&E — live and in development.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="wordmark" href="/"><img src="/assets/logo.jpg" alt="KillerWhale G&E logo">KillerWhale G&amp;E</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/projects" class="active">Projects</a>
+      <a href="/services">Services</a>
+      <a href="/omniverse">Omniverse</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" style="padding-bottom:0">
+    <h1 style="max-width:none;font-size:2.1rem">Projects</h1>
+    <p>Everything we're building, sortable by type. Most are free, and a few are playable right now even mid-development.</p>
+  </section>
+
+  <section style="border-bottom:none">
+    <div class="filter-row">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="apps">Apps</button>
+      <button class="filter-btn" data-filter="games">Games</button>
+      <button class="filter-btn" data-filter="books">Books</button>
+    </div>
+
+    <div class="grid" id="proj-grid">
+      <div class="proj-card show card" data-cat="apps">
+        <h3>DrivrHlthChkr <span class="badge">Live · Free</span></h3>
+        <p>Windows 10/11 tool that checks your drivers and system software for available updates. Python-based, and fully editable — open source in practice.</p>
+        <a href="/projects/drivrhlthchkr">Full details & download →</a>
+      </div>
+
+      <div class="proj-card show card" data-cat="games">
+        <h3>Who&amp;Why: Fading Echoes <span class="badge">In development · Free</span></h3>
+        <p>An interactive text novel (heading toward a visual novel later) following a teen investigating his friend's death — ruled a suicide, but he's not convinced. First in a planned series.</p>
+        <a href="https://chooseyourstory.com/story/who-and-why-1~3a-fading-echoes-v0~2e1">Play the current build →</a>
+      </div>
+
+      <div class="proj-card show card" data-cat="games">
+        <h3>What&amp;Where <span class="badge">In development · Free</span></h3>
+        <p>A prequel to Who&amp;Why. A 3D game built in Unity, following a detective investigating a "simple" murder that isn't so simple — and who later assists the Who&amp;Why protagonist.</p>
+      </div>
+
+      <div class="proj-card show card" data-cat="games">
+        <h3>Nightmare Mart <span class="badge">Planned · Free</span></h3>
+        <p>Trapped inside a mall, you have to escape — uncovering the lore and dodging whatever's living on the premises along the way. Planned for Roblox first, possibly independent later.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 KillerWhale G&amp;E</span>
+    <span><a href="/contact" style="text-decoration:none;color:var(--slate)">Got something to suggest? →</a></span>
+  </footer>
+</div>
+
+<script>
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.proj-card').forEach(card=>{
+      card.classList.toggle('show', f==='all' || card.dataset.cat===f);
+    });
+  });
+});
+</script>
+</body>
+</html>
